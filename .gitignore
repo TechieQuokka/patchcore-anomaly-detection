@@ -6,7 +6,7 @@ __pycache__/
 
 # Training artifacts
 checkpoints/
-results/
+results/*/  # Exclude category subdirectories, but keep summary files and images
 
 # External libraries (build from source)
 faiss/

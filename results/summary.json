@@ -1,0 +1,157 @@
+{
+  "categories": {
+    "bottle": {
+      "category": "bottle",
+      "image_auroc": 1.0,
+      "pixel_auroc": 0.9796177144274267,
+      "num_test_samples": 83,
+      "num_normal": 20,
+      "num_anomaly": 63,
+      "inference_time": 23.783977031707764,
+      "fps": 3.4897443724129067
+    },
+    "cable": {
+      "category": "cable",
+      "image_auroc": 0.9861319340329835,
+      "pixel_auroc": 0.9788782435498129,
+      "num_test_samples": 150,
+      "num_normal": 58,
+      "num_anomaly": 92,
+      "inference_time": 44.17698073387146,
+      "fps": 3.395433492922972
+    },
+    "capsule": {
+      "category": "capsule",
+      "image_auroc": 0.9553250897487037,
+      "pixel_auroc": 0.9837198282108506,
+      "num_test_samples": 132,
+      "num_normal": 23,
+      "num_anomaly": 109,
+      "inference_time": 40.398947954177856,
+      "fps": 3.2674118184889323
+    },
+    "hazelnut": {
+      "category": "hazelnut",
+      "image_auroc": 1.0,
+      "pixel_auroc": 0.9794816115877398,
+      "num_test_samples": 110,
+      "num_normal": 40,
+      "num_anomaly": 70,
+      "inference_time": 46.115227699279785,
+      "fps": 2.3853292174402068
+    },
+    "metal_nut": {
+      "category": "metal_nut",
+      "image_auroc": 0.9951124144672532,
+      "pixel_auroc": 0.9822756898443937,
+      "num_test_samples": 115,
+      "num_normal": 22,
+      "num_anomaly": 93,
+      "inference_time": 25.98348331451416,
+      "fps": 4.425888500321354
+    },
+    "pill": {
+      "category": "pill",
+      "image_auroc": 0.9432624113475178,
+      "pixel_auroc": 0.9720891823399745,
+      "num_test_samples": 167,
+      "num_normal": 26,
+      "num_anomaly": 141,
+      "inference_time": 43.73319458961487,
+      "fps": 3.818609675490223
+    },
+    "screw": {
+      "category": "screw",
+      "image_auroc": 0.906538225046116,
+      "pixel_auroc": 0.9832133130894638,
+      "num_test_samples": 160,
+      "num_normal": 41,
+      "num_anomaly": 119,
+      "inference_time": 38.57407021522522,
+      "fps": 4.147864073126716
+    },
+    "toothbrush": {
+      "category": "toothbrush",
+      "image_auroc": 0.9083333333333334,
+      "pixel_auroc": 0.9841600876338362,
+      "num_test_samples": 42,
+      "num_normal": 12,
+      "num_anomaly": 30,
+      "inference_time": 9.822941541671753,
+      "fps": 4.275704973079996
+    },
+    "transistor": {
+      "category": "transistor",
+      "image_auroc": 0.9920833333333333,
+      "pixel_auroc": 0.948522059645537,
+      "num_test_samples": 100,
+      "num_normal": 60,
+      "num_anomaly": 40,
+      "inference_time": 30.03608989715576,
+      "fps": 3.3293281629666915
+    },
+    "zipper": {
+      "category": "zipper",
+      "image_auroc": 0.9679621848739496,
+      "pixel_auroc": 0.9795232467391265,
+      "num_test_samples": 151,
+      "num_normal": 32,
+      "num_anomaly": 119,
+      "inference_time": 32.421818256378174,
+      "fps": 4.657357548733238
+    },
+    "carpet": {
+      "category": "carpet",
+      "image_auroc": 0.9987961476725522,
+      "pixel_auroc": 0.9873419905649544,
+      "num_test_samples": 117,
+      "num_normal": 28,
+      "num_anomaly": 89,
+      "inference_time": 47.775588035583496,
+      "fps": 2.448949449096426
+    },
+    "grid": {
+      "category": "grid",
+      "image_auroc": 0.9523809523809523,
+      "pixel_auroc": 0.9638448619831381,
+      "num_test_samples": 78,
+      "num_normal": 21,
+      "num_anomaly": 57,
+      "inference_time": 21.040092945098877,
+      "fps": 3.7072079578512263
+    },
+    "leather": {
+      "category": "leather",
+      "image_auroc": 1.0,
+      "pixel_auroc": 0.9892277917824908,
+      "num_test_samples": 124,
+      "num_normal": 32,
+      "num_anomaly": 92,
+      "inference_time": 45.367753982543945,
+      "fps": 2.7332188419050065
+    },
+    "tile": {
+      "category": "tile",
+      "image_auroc": 1.0,
+      "pixel_auroc": 0.93689526836159,
+      "num_test_samples": 117,
+      "num_normal": 33,
+      "num_anomaly": 84,
+      "inference_time": 32.96298050880432,
+      "fps": 3.5494363129192648
+    },
+    "wood": {
+      "category": "wood",
+      "image_auroc": 0.9894736842105263,
+      "pixel_auroc": 0.922326427450875,
+      "num_test_samples": 79,
+      "num_normal": 19,
+      "num_anomaly": 60,
+      "inference_time": 27.49306297302246,
+      "fps": 2.8734521169037683
+    }
+  },
+  "average_image_auroc": 0.9730266473631481,
+  "average_pixel_auroc": 0.9714078211474141,
+  "total_time": 574.2619984149933
+}
