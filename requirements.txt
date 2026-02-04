@@ -1,0 +1,23 @@
+# PatchCore Dependencies
+# Target: RTX 3060 12GB, CUDA 11.x
+
+# Core Deep Learning
+torch>=1.9.0
+torchvision>=0.10.0
+
+# GPU-accelerated k-NN (install via conda)
+faiss-gpu>=1.7.0
+
+# Scientific Computing
+numpy>=1.19.0
+scipy>=1.7.0
+scikit-learn>=0.24.0
+
+# Image Processing
+Pillow>=8.0.0
+
+# Visualization
+matplotlib>=3.4.0
+
+# Progress Bar
+tqdm>=4.62.0
