@@ -67,7 +67,7 @@ class ModelConfig:
 class TrainConfig:
     """Training configuration"""
     # Batch size for feature extraction
-    batch_size: int = 64
+    batch_size: int = 128
 
     # Device
     device: str = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -80,7 +80,7 @@ class TrainConfig:
 class EvalConfig:
     """Evaluation configuration"""
     # Batch size for inference
-    batch_size: int = 32
+    batch_size: int = 128
 
     # Device
     device: str = 'cuda' if torch.cuda.is_available() else 'cpu'

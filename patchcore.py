@@ -230,41 +230,45 @@ class PatchCore:
             return self._greedy_coreset_numpy(features, target_size)
 
     def _greedy_coreset_faiss(self, features: np.ndarray, target_size: int) -> np.ndarray:
-        """Greedy coreset using faiss for acceleration."""
+        """Greedy coreset using GPU-accelerated distance computation."""
         N, C = features.shape
         features = features.astype(np.float32)
 
         # Initialize with random point
         selected_indices = [np.random.randint(N)]
 
-        # Build index with selected points
-        index = faiss.IndexFlatL2(C)
+        # Use GPU if available for faster distance computation
         if torch.cuda.is_available():
-            res = faiss.StandardGpuResources()
-            index = faiss.index_cpu_to_gpu(res, 0, index)
+            features_gpu = torch.from_numpy(features).cuda()
 
-        index.add(features[selected_indices])
+            # Compute initial distances to first point
+            first_point = features_gpu[selected_indices[0]]
+            distances = torch.norm(features_gpu - first_point, dim=1)
 
-        # Compute initial distances
-        distances, _ = index.search(features, 1)
-        distances = distances.squeeze()
+            # Iteratively select farthest point
+            for _ in tqdm(range(target_size - 1), desc="  Coreset", leave=False):
+                # Select point with maximum distance to current coreset
+                farthest_idx = torch.argmax(distances).item()
+                selected_indices.append(farthest_idx)
 
-        # Iteratively select farthest point
-        for _ in tqdm(range(target_size - 1), desc="  Coreset", leave=False):
-            # Select point with maximum distance to current coreset
-            farthest_idx = np.argmax(distances)
-            selected_indices.append(farthest_idx)
+                # Compute distance to newly added point only
+                new_point = features_gpu[farthest_idx]
+                new_distances = torch.norm(features_gpu - new_point, dim=1)
 
-            # Update distances
-            new_point = features[farthest_idx:farthest_idx+1]
-            index.add(new_point)
+                # Keep minimum distance to coreset
+                distances = torch.minimum(distances, new_distances)
+        else:
+            # CPU fallback
+            first_point = features[selected_indices[0]]
+            distances = np.linalg.norm(features - first_point, axis=1).astype(np.float32)
 
-            # Compute distance to new point
-            new_distances, _ = index.search(features, 1)
-            new_distances = new_distances.squeeze()
+            for _ in tqdm(range(target_size - 1), desc="  Coreset", leave=False):
+                farthest_idx = np.argmax(distances)
+                selected_indices.append(farthest_idx)
 
-            # Keep minimum distance to coreset
-            distances = np.minimum(distances, new_distances)
+                new_point = features[farthest_idx]
+                new_distances = np.linalg.norm(features - new_point, axis=1).astype(np.float32)
+                distances = np.minimum(distances, new_distances)
 
         return features[selected_indices]
 
